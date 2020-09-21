@@ -1,5 +1,5 @@
 [package]
-name = "MiniMD"
+name = "mini_md"
 version = "0.1.0"
 authors = ["tmendonca28 <tmendonca28@gmail.com>"]
 edition = "2018"
