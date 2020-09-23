@@ -1,12 +1,29 @@
-fn get_version() -> u16 {
-    2828
+fn get_title() -> String {
+    let mut the_title = String::from(env!("CARGO_PKG_NAME"));
+    the_title.push_str(" (v");
+    the_title.push_str(env!("CARGO_PKG_VERSION"));
+    the_title.push_str("), ");
+    the_title.push_str(env!("CARGO_PKG_DESCRIPTION"));
+    return the_title;
+}
+
+fn parse_markdown_file() {
+
+}
+
+fn print_short_banner() {
+    println!("{}", get_title());
+}
+
+fn print_long_banner() {
+    print_short_banner();
+    println!("Written by: {}\nUsage: tinymd <somefile>.md\n",
+    env!("CARGO_PKG_AUTHORS")
+    );
 }
 
 fn usage() {
-    let the_version : u16;
-    the_version = get_version();
-    println!("MiniMD, a markdown compiler written by Anthony Mendonca");
-    println!("Version {}", the_version);
+    print_long_banner();
 }
 
 fn main() {
