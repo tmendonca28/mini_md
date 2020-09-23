@@ -7,8 +7,9 @@ fn get_title() -> String {
     return the_title;
 }
 
-fn parse_markdown_file() {
-
+fn parse_markdown_file(filename: &str) {
+    print_short_banner();
+    println!("[ INFO ] Trying to parse {}...", filename);
 }
 
 fn print_short_banner() {
@@ -27,5 +28,13 @@ fn usage() {
 }
 
 fn main() {
-    usage();
+    let args : Vec<String> = std::env::args().collect();
+
+    match args.len() {
+        2 => parse_markdown_file(&args[1]),
+        _ => {
+            println!("[ ERROR ] Invalid invocation (you made a bubu!)");
+            usage();
+        }
+    }
 }
